@@ -93,4 +93,47 @@ console.log(
     }))
 )
 ///Use the reduce method to calculate the sum of the ages.
+const sumOfAges = peopleArray.reduce((sum, person) => sum + parseInt(person.age), 0);
+console.log("sumOfAges is =" + sumOfAges)
+
+
 ///Then use the result to calculate the average age.
+let avgOfAges = sumOfAges / peopleArray.length;
+console.log("The avg of age is  = " + avgOfAges)
+
+///For this section, develop functions that accomplish the following:
+//Take an object and increment its age field.
+let objWithAge = {};
+
+
+function incrementAge(inputObj) {
+    if (inputObj.age == undefined) {
+        inputObj.age = 0;
+
+    } else {
+        inputObj.age = inputObj.age + 1;
+    }
+    inputObj.updated_at = new Date();
+    return inputObj;
+}
+
+console.log("Same Object..");
+console.log(incrementAge({ noAge: 1 }));
+console.log(incrementAge({ age: 1 }));
+
+///Take an object, make a copy, and increment the age field of the copy. Return the copy.
+function copyObjWithIncrementAge(inputObj) {
+    let copyObjAge = {
+    };
+    if (inputObj.age == undefined) {
+        copyObjAge.age = 0;
+    } else {
+        copyObjAge.age = inputObj.age + 1
+    }
+    copyObjAge.updated_at = new Date();
+    return copyObjAge;
+};
+
+console.log("Copy Object..");
+console.log(copyObjWithIncrementAge({ noAge: 1 }));
+console.log(copyObjWithIncrementAge({ age: 1 }));
